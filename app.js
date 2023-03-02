@@ -12,7 +12,7 @@ class Dino {
         this.facts = [fact];
     }
 
-    // compare dino's height to the user's input height
+    // Compare dino's height to the user's input height
     compareDinoHeight(human) {
         if (this.species === "Pigeon") return;
 
@@ -27,7 +27,7 @@ class Dino {
         );
     }
 
-    // compare dino's weight to the user's input weight
+    // Compare dino's weight to the user's input weight
     compareDinoWeight(human) {
         if (this.species === "Pigeon") return;
 
@@ -42,7 +42,7 @@ class Dino {
         );
     }
 
-    // compare dino's diet to the user's input diet
+    // Compare dino's diet to the user's input diet
     compareDinoDiet(human) {
         if (this.species === "Pigeon") return;
 
@@ -111,43 +111,14 @@ form.addEventListener("submit", async (e) => {
         formProps.diet.toLowerCase(),
         "./images/human.png"
     );
+
     const dinos = [];
 
-    // call api to get dinos date from json file
+    // Call api to get dinos date from json file
     const { Dinos } = await (await fetch("./dino.json")).json();
 
     // Create Dino objects from date from api
     Dinos.forEach(({ species, weight, height, diet, where, when, fact }) => {
-        let img;
-        switch (species) {
-            case "Triceratops":
-                img = "./images/triceratops.png";
-                break;
-            case "Pigeon":
-                img = "./images/pigeon.png";
-                break;
-            case "Tyrannosaurus Rex":
-                img = "./images/tyrannosaurusrex.png";
-                break;
-            case "Anklyosaurus":
-                img = "./images/anklyosaurus.png";
-                break;
-            case "Brachiosaurus":
-                img = "./images/brachiosaurus.png";
-                break;
-            case "Stegosaurus":
-                img = "./images/stegosaurus.png";
-                break;
-            case "Elasmosaurus":
-                img = "./images/elasmosaurus.png";
-                break;
-            case "Pteranodon":
-                img = "./images/pteranodon.png";
-                break;
-            default:
-                break;
-        }
-
         const dino = new Dino(
             species,
             weight,
@@ -156,7 +127,7 @@ form.addEventListener("submit", async (e) => {
             where,
             when,
             fact,
-            img
+            `./images/${species.toLowerCase()}.png`
         );
 
         dino.compareDinoHeight(human);
