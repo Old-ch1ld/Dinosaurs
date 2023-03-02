@@ -12,6 +12,7 @@ class Dino {
         this.facts = [fact];
     }
 
+    // compare dino's height to the user's input height
     compareDinoHeight(human) {
         if (this.species === "Pigeon") return;
 
@@ -26,6 +27,7 @@ class Dino {
         );
     }
 
+    // compare dino's weight to the user's input weight
     compareDinoWeight(human) {
         if (this.species === "Pigeon") return;
 
@@ -40,7 +42,8 @@ class Dino {
         );
     }
 
-    compateDinoDiet(human) {
+    // compare dino's diet to the user's input diet
+    compareDinoDiet(human) {
         if (this.species === "Pigeon") return;
 
         this.facts.push(
@@ -83,7 +86,7 @@ function generateTiles(dinos, human) {
     }
     const tiles = dinos.map(generateTile);
 
-    // Keep human tile in the middle of the screen
+    // Keep human tile in the middle of the array
     tiles.splice(4, 0, generateTile(human));
 
     return tiles;
@@ -158,7 +161,7 @@ form.addEventListener("submit", async (e) => {
 
         dino.compareDinoHeight(human);
         dino.compareDinoWeight(human);
-        dino.compateDinoDiet(human);
+        dino.compareDinoDiet(human);
 
         shuffleArray(dino.facts);
 
